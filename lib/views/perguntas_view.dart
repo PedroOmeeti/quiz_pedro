@@ -12,6 +12,34 @@ class PerguntasView extends StatefulWidget {
 
 class _PerguntasViewState extends State<PerguntasView> {
   List perguntas = Lista.perguntas;
+  int numero = 0;
+  int acertos = 0;
+  void responder(int resposta) {
+      int respostaUsuario = resposta;
+      int respostaCorreta = perguntas[numero]['Alternativa correta']; 
+      
+      if (respostaUsuario == respostaCorreta) {
+        setState(() {
+          acertos++;
+          
+        });
+      }
+      if (numero + 1 == perguntas.length) {
+        Navigator.pushReplacementNamed(context, '/resultado', arguments: acertos);
+      }
+
+      if (numero < perguntas.length - 1) {
+        setState(() {
+          numero++;
+        });
+      } else {
+        print('Quiz Finalizado');
+      }
+    
+      
+      
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +58,18 @@ class _PerguntasViewState extends State<PerguntasView> {
         children: [
           EspacamentoH(h: 40),
 
-          Titulo1(texto: perguntas[0]['pergunta'], tamanho: 20),
+          Titulo1(texto: perguntas[numero]['pergunta'], tamanho: 20),
 
           EspacamentoH(h: 80),
 
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              responder(1);
+            },
             style: TextButton.styleFrom(
               backgroundColor: Colors.lightBlue,
             ),
-            child: Text(perguntas[0]['respostas'][0],
+            child: Text(perguntas[numero]['respostas'][0],
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white
@@ -50,11 +80,13 @@ class _PerguntasViewState extends State<PerguntasView> {
           EspacamentoH(h: 40),
 
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              responder(2);
+            },
             style: TextButton.styleFrom(
               backgroundColor: Colors.lightBlue,
             ),
-            child: Text(perguntas[0]['respostas'][1],
+            child: Text(perguntas[numero]['respostas'][1],
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white
@@ -65,11 +97,13 @@ class _PerguntasViewState extends State<PerguntasView> {
           EspacamentoH(h: 40),
 
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              responder(3);
+            },
             style: TextButton.styleFrom(
               backgroundColor: Colors.lightBlue,
             ),
-            child: const Text('Resposta 3',
+            child: Text(perguntas[numero]['respostas'][2],
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white
@@ -80,11 +114,13 @@ class _PerguntasViewState extends State<PerguntasView> {
           EspacamentoH(h: 40),
 
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              responder(4);
+            },
             style: TextButton.styleFrom(
               backgroundColor: Colors.lightBlue,
             ),
-            child: const Text('Resposta 4',
+            child: Text(perguntas[numero]['respostas'][3],
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white

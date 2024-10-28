@@ -30,5 +30,35 @@ class Lista {
       ],
       "Alternativa correta": 2,
     },
+    {
+      "pergunta": "Quanto é 9 x 9?",
+      "respostas": [
+        "86",
+        "80",
+        "79",
+        "81",
+      ],
+      "Alternativa correta": 4,
+    },
+    {
+      "pergunta": "Quanto é 8 x 8?",
+      "respostas": [
+        "63",
+        "74",
+        "58",
+        "64",
+      ],
+      "Alternativa correta": 4,
+    },
+    {
+      "pergunta": "Quais são os métodos do Padrão Observer?",
+      "respostas": [
+        "ataque, defesa e velocidade",
+        "attach, detach e notify",
+        "observer, update e notify",
+        "observer, observable e notify",
+      ],
+      "Alternativa correta": 2,
+    },
   ];
 }

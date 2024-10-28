@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_pedro/views/perguntas_view.dart';
+import 'package:quiz_pedro/views/resultado_view.dart';
 import 'package:quiz_pedro/views/tela_inicial_view.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/quiz': (context) => PerguntasView(),
+        '/resultado': (context) => ResultadoView(),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
